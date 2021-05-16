@@ -20,7 +20,8 @@ class Command(BaseCommand):
                 city = City.objects.get(id=city_id)
             except ObjectDoesNotExist:
                 #Hardcoded because of the nature of this project
-                city = City(id='8043', name='Vitoria-Gasteiz').save()
+                City(id=city_id, name='Vitoria-Gasteiz').save()
+                city = City.objects.get(id=city_id)
             try:
                 Forecast.objects.get(city=city).delete()
             except ObjectDoesNotExist:
