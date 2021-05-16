@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block mainsection %}
+<div id="data_load" class="col-12">
+    <h1 class="display-3 text-center mb-2">Forecast of Vitoria-Gasteiz</h1>
+    <h6 class="text-center mb-4">Data provided by: <a href="https://www.tutiempo.net">Tu Tiempo</a></h6>
+
+    <div class="card col-6 mx-auto">
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                {% for city, data in cities.items %}
+                    {% for forecast in data %}
+                    <li class="list-group-item">
+                        <div class="d-flex justify-content-between">
+                            <strong>{{ forecast.0 }}</strong>
+                            <span>Maximum <strong>{{ forecast.1 }}</strong> - Minimum: <strong>{{ forecast.2 }}</strong></span>
+                        </div>
+                    </li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% if no_data %}
+
+{% endif %}
+
+{% endblock mainsection %}
+
+{% block extra %}
+{% endblock extra %}
