@@ -16,11 +16,15 @@ class Command(BaseCommand):
         response = requests.get(url)
         if response.status_code == 200:
             json_data = response.json()
-            city = City.objects.get(id=city_id)
+            try:
+                city = City.objects.get(id=city_id)
+            except ObjectDoesNotExist:
+                #Hardcoded because of the nature of this project
+                city = City(id='8043', name='Vitoria-Gasteiz').save()
             try:
                 Forecast.objects.get(city=city).delete()
             except ObjectDoesNotExist:
-                print('Warning: City not in the database, adding it.')
+                print('Warning: Forecast not in the database, adding it.')
             forecast = Forecast(city=city, data=json_data)
             forecast.save()
         else:
