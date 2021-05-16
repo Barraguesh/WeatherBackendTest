@@ -4,6 +4,7 @@ Example Django proyect for a backend test
 ### Annotations
 * This proyect doesn't protect/hide the API key, DB password/user and the Django secret keys because of the nature of the project, in a real world scenario there would be restricted access to said sensitive data and would be away from any public repositories.
 * The app doesn't use any users.
+* App API accesible via http://127.0.0.1:8000/api (has web interface)
 
 # How to
 * **Docker and docker compose is needed.** 
