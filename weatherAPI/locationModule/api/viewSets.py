@@ -13,9 +13,9 @@ from locationModule.api.serializers import ForecastSerializer
 class CityViewSet(viewsets.ModelViewSet):
     queryset = City.objects.all()
     serializer_class = CitySerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = all
 
 class ForecastViewSet(viewsets.ModelViewSet):
     queryset = Forecast.objects.all()
     serializer_class = ForecastSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = all
