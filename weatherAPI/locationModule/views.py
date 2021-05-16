@@ -20,7 +20,7 @@ def index_view(request):
         forecast = Forecast.objects.get(city=city)
         array_forecast = []
         json_data = forecast.data
-        for x in range(1,7):
+        for x in range(1,8):
             array_forecast.append([json_data[f'day{x}']['date'], json_data[f'day{x}']['temperature_max'], json_data[f'day{x}']['temperature_min']])
         args['cities'] = {city.id: array_forecast}
     return render(request, 'index.html', args)
